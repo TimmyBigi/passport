@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: [true, 'Email is required'],
+        required: [false, 'Email is required'],
         unique: true,
         trim: true,
         lowercase: true,
@@ -20,14 +20,15 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Password is required'],
+        required: [false, 'Password is required'],
         minlength: [6, 'Password must be at least 6 characters']
     },
     googleId: {
         type: String,
         unique: true,
         sparse: true
-    }
+    },
+    profilePicture: { type: String }
 }, {
     timestamps: true,
     versionKey: false
